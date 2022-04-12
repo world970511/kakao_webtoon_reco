@@ -88,7 +88,7 @@
 
 ## 📂구성도
 - 구성도🔗 https://www.figma.com/file/wfVi0LNkrcLO38pAnTPNiG/%EC%B9%B4%EC%B9%B4%EC%98%A4-%EC%9B%B9%ED%88%B0-%EC%B6%94%EC%B2%9C?node-id=0%3A1
-- ![image](https://user-images.githubusercontent.com/57740138/162652362-65b7d195-b97b-43bf-afc7-c1ef939ed0d2.png)
+- ![image](https://user-images.githubusercontent.com/57740138/162926465-e50b245a-2e06-4297-9dcb-c7886e214e84.png)
 
 
 
