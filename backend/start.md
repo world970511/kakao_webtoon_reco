@@ -32,21 +32,9 @@ pip install django 치면 됨. 최신버전으로 해놨음
 
 8. git push origin "프로젝트명" (ex: git push origin nauen 이런 식으로 입력)
 
+추가 참고 
 
-
-
-
-*필요 파이썬 패키지(장고 등) 설치:
-  - cd back
-  - pip3 install -r requirements.txt (가상환경 진입한 상태에서 해야 함.)
-
-
-* 서버 구동 확인: 
-  cd back
-  python manage.py runserver
-* http://localhost:8000 로 접속 확인 후 서버 종료 : Ctrl + C
-
-* model 수정시 관련:
+* model 수정시 :
   python manage.py makemigrations
   python manage.py migrate --run-syncdb
   python manage.py createsuperuser
@@ -61,10 +49,11 @@ pip install django 치면 됨. 최신버전으로 해놨음
  localhost:8000/api/product/ 또는 localhost:8000/api/user 에 접속하여 추가한 데이터들이 JSON 형식으로 잘 리턴되는지 확인
 
 * 혹시 안된다면 아래 DB 모델 관련 마이그레이션 명령어들 실행 후 python manage.py runserver 명령으로 서버 구동해 볼 것.
+
 * DB/모델 추가/변경시 새 마이그레션을 생성:
   python manage.py makemigrations
   python manage.py migrate
 
-추가 참고: https://overcome-the-limits.tistory.com/entry/%ED%98%91%EC%97%85-%ED%98%91%EC%97%85%EC%9D%84-%EC%9C%84%ED%95%9C-%EA%B8%B0%EB%B3%B8%EC%A0%81%EC%9D%B8-git-%EC%BB%A4%EB%B0%8B%EC%BB%A8%EB%B2%A4%EC%85%98-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0
-커밋컨벤션 이야기 이거 참고해서 깃 관리할거라 참고해주십셔
+커밋컨벤션: https://overcome-the-limits.tistory.com/entry/%ED%98%91%EC%97%85-%ED%98%91%EC%97%85%EC%9D%84-%EC%9C%84%ED%95%9C-%EA%B8%B0%EB%B3%B8%EC%A0%81%EC%9D%B8-git-%EC%BB%A4%EB%B0%8B%EC%BB%A8%EB%B2%A4%EC%85%98-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0
+이거 참고해서 깃 관리할거라 참고해주십셔
 ```
