@@ -63,16 +63,23 @@ key_xp = f'//p[contains(@class, "{key_cl}")]'
 
 dr.get(wt_url[0])
 WebDriverWait(dr, 100).until(EC.presence_of_element_located((By.XPATH, title_xp)))
-title[0] = dr.find_elements(By.XPATH, title_xp)[0].text
-genre[0] = dr.find_elements(By.XPATH, genre_xp)[0].text
-img_url[0] = dr.find_elements(By.XPATH, img_xp)[0].get_attribute('content')
-desc[0] = dr.find_elements(By.XPATH, desc_xp)[0].get_attribute('content')
+# title[0] = dr.find_elements(By.XPATH, title_xp)[0].text
+# genre[0] = dr.find_elements(By.XPATH, genre_xp)[0].text
+# img_url[0] = dr.find_elements(By.XPATH, img_xp)[0].get_attribute('content')
+# desc[0] = dr.find_elements(By.XPATH, desc_xp)[0].get_attribute('content')
 print(1)
 #WebDriverWait(dr, 100).until(EC.presence_of_element_located((By.XPATH, key_xp)))
-#print(dr.find_elements(By.XPATH, key_xp))
+#time.sleep(20)
+click_cl = "whitespace-pre-wrap break-all break-words overflow-hidden text-ellipsis !whitespace-nowrap s12-regular-white -mt-3 opacity-85 leading-21 h-21"
+click_xp = f'//p[contains(@class, "{click_cl}")]'
 
-# urlretrieve(link, f'./img/{}.jpg')
+WebDriverWait(dr, 100).until(EC.presence_of_element_located((By.XPATH, click_xp)))
+dr.find_element(By.XPATH, click_xp).click()
 
+print(2)
+WebDriverWait(dr, 100).until(EC.presence_of_element_located((By.XPATH, key_xp)))
+
+print(dr.find_elements(By.XPATH, key_xp))
 
 #dr.get_screenshot_as_file('last_screen_headless.png')
 #dr.quit()
