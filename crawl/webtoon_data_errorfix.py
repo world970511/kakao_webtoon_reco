@@ -2,26 +2,21 @@ import pandas as pd
 #import numpy as np
 import chromedriver_autoinstaller
 chromedriver_autoinstaller.install()
-import time, os
+import time
 
-from urllib.parse import unquote_plus
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 # Input URL csv file
-csv_fpath = './csv/wt_url.csv'
+csv_fpath = './csv/error_url_0-1292.csv'
 
-csv_file = pd.read_csv(csv_fpath)
+csv_file = pd.read_csv(csv_fpath, sep=';')
 wt_url = csv_file['url'].values.tolist()
 wt_id = csv_file['id'].values.tolist()
 wtl = len(wt_url)
-
-# 이미지 저장 폴더
-img_folder = './img'
 
 # chromedriver 설정
 co = Options()
@@ -52,23 +47,17 @@ key_word = [0 for i in range(wtl)]
 
 # 에러 발생하는 url 수집
 error_url = []
+error_id = []
 
-sind = 1248
+sind = 0
 #ii = 0
 for ii in range(wtl):
-#for ii in range(165,wtl):
-#for ii in range(230,wtl):
-#for ii in range(383,wtl):
-#for ii in range(407,wtl):
-#for ii in range(422,wtl):
-#for ii in range(460,wtl):
-#for ii in range(812,wtl):
-#for ii in range(1248,wtl):
     print(ii)
     try:
         dr.get(wt_url[ii])
         WebDriverWait(dr, 100).until(EC.presence_of_element_located((By.XPATH, title_xp)))
-        time.sleep(3)
+        time.sleep(25)
+        # 버튼을 가리는 영상이 뜨는 경우들이 있음..
 
         title[ii] = dr.find_elements(By.XPATH, title_xp)[0].text
         genre[ii] = dr.find_elements(By.XPATH, genre_xp)[0].text
@@ -83,6 +72,9 @@ for ii in range(wtl):
 
     except Exception as error:
         print(error)
+        eid = wt_url[ii].split('/')[5]
+        error_id.append(eid)
+        print(eid)
         error_url.append(wt_url[ii])
         print(error_url)
 
@@ -107,14 +99,9 @@ csv_file['img_url'] = img_url
 csv_file['desc'] = desc1
 csv_file['key_word'] = key_word
 ncsv = csv_file.loc[sind:find,:]
-ncsv.to_csv(f'./csv/wt_data_{sind}-{find}.csv', sep=';',index=False)
+ncsv.to_csv(f'./csv/wt_data_e1_{sind}-{find}.csv', sep=';',index=False)
 
-error_df = pd.DataFrame(error_url)
-error_df.to_csv(f'./csv/error_url_{sind}-{find}.csv', index=False)
-
-
-# for i in range(sind,find):
-#     try:
-#         desc1[i] = desc[i].replace("\n","\m")
-#     except AttributeError:
-#         pass
+error_df = pd.DataFrame()
+error_df['id'] = error_id
+error_df['url'] = error_url
+error_df.to_csv(f'./csv/error_url_e1_{sind}-{find}.csv', index=False)
