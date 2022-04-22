@@ -6,11 +6,12 @@
 1. 각 웹툰의 url을 수집하고 (webtoon_crawl_url.py)
 2. 수집된 웹툰 url을 바탕으로 각 정보를 수집했다. (webtoon_crawl_data.py)
 
+webtoon_crawl_data.py의 경우, 키워드 수집을 할 때 화면 크기에 따라 클릭이 되는 경우와 아닌 경우가 나타나서, 글꼴 크기 90%에 검사창을 켠 상태일 때 제대로 작동했다.
 
 crawl_url_sort.py의 경우, 수집한 url들이 중복된 경우도 있고, 보기 좋은 형태로 정돈되어있지 않기 때문에 이를 정돈하려는 목적으로 작성했다.
 
 
-webtoon_data_merge.py의 경우, 2번에서 각 정보를 수집할 때, 중간중간 Exception 들이 발생하면서 코드가 멈췄는데
+webtoon_data_merge_first.py의 경우, 2번에서 각 정보를 수집할 때, 중간중간 Exception 들이 발생하면서 코드가 멈췄는데
 
 1) 꽤 오랜 시간(약 2-3시간)동안 인터넷과 연결된 채로 run을 해야 하는 코드이고
 2) 에러가 발생한 url들은 url 자체가 잘못되어서 에러가 발생한 것이 아니므로
@@ -24,3 +25,11 @@ ipython을 이용해 run된 부분까지 저장된 정보들을 확인하고 그
 webtoon_data_errorfix.py의 경우, 에러가 발생한 url로 인해 수집하지 못한 자료들을 다시 채워넣기 위해 작성한 코드이다. webtoon_crawl_data.py와 매우 유사하다.
 
 확인해보니, 키워드를 수집하기 위해 눌러야하는 버튼 위로 거대한 영상을 띄우는 웹툰들이 있었다. 그리고 그 영상은 다시 접속했을 때 뜨지 않았다. 그래서 다시 코드를 돌렸을 때는 되는 경우들이 꽤 많았나보다..
+
+이 코드를 같은 방식으로 2번 돌리니까, 모든 url에 대해서 정보를 얻을 수 있었다.
+
+
+webtoon_data_merge_second.py는 위에서 얻은 wt_data와 wt_e1, wt_e2 파일을 합치고, 일부 url에 대해 description이 빠지는 에러를 확인해, 이를 보충하는 코드이다. 
+
+
+webtoon_img_download.py는 imgurl을 바탕으로 각 웹툰의 메인 이미지를 저장하는 코드이다.

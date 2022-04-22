@@ -3,10 +3,11 @@
 
 ## etc ##
 .vscode
-.gitignore
 crawl.cmd
 reco.cmd
 chromedriver.exe
+csv/
+img/
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
