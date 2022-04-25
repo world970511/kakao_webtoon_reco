@@ -68,7 +68,7 @@
   }
 
   /* --------- */
-/* Home section */
+/* Intro section */
 /* --------- */
 
 .intro-section {
@@ -96,4 +96,35 @@
 .into-second{
     font-size: 2.2em !important;
     padding-left: 10px !important;
+}
+
+  /* --------- */
+/* Select section */
+/* --------- */
+
+.select-section {
+  position: relative;
+  z-index: -1;
+  background-position: top center;
+  background-repeat: no-repeat;
+  padding-bottom: 30px !important;
+  padding-top: 30px !important;
+  background-color: #ffd256;
+}
+
+.select-content {
+  padding: 4rem 0 2rem !important;
+  color:#000000;
+  text-align: left;
+}
+.intro {
+  padding-left: 45px !important;
+}
+.intro-first{
+  font-size: 2.0em !important;
+  padding-left: 10px !important;
+}
+.into-second{
+  font-size: 2.2em !important;
+  padding-left: 10px !important;
 }
