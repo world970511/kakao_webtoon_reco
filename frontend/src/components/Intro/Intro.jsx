@@ -25,16 +25,16 @@ export default function Intro() {
           <h1 className="into-second">
             <strong> 웹툰</strong>을 찾는 방법
           </h1>
-            <div className="d-grid gap-2" 
+            <div
                 style={{
                     paddingLeft:10,
                     paddingBottom:65,
                     paddingTop:35,
                     width:200
-                    }}>
-                <Button  variant="dark" size="lg"  href="/Select">
+                    }} >
+                  <Button  variant="dark" size="lg" >
                     Start?
-                </Button>
+                  </Button>
             </div>
           </Col>
           <Col md={5} xs={12}>
