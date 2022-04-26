@@ -4,6 +4,6 @@ from . import views
 
 app_name = 'reco'
 
-#urlpatterns = [
-#    path('',views.main, name='main')
-#]
+urlpatterns = [
+   path('',views.main, name='main')
+]

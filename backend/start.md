@@ -13,9 +13,7 @@ activate
     -- pip 업그레이드가 필요할 경우 -> *pip 최신 버전 업그레이드: python -m pip install --upgrade pip
 
 3.필요 파이썬 패키지 설치
-아직까진 장고 하나밖에 없으니 그냥 
-cd backend 이후
-pip install django 치면 됨. 최신버전으로 해놨음
+pip3 install -r require.txt     
 
 4.서버 구동 확인: 
   cd back
@@ -38,6 +36,7 @@ pip install django 치면 됨. 최신버전으로 해놨음
   python manage.py makemigrations
   python manage.py migrate --run-syncdb
   python manage.py createsuperuser
+  이후 db_uploaders.py 디버깅해서 초기 데이터 업로드
   
 * 초기 db 생성: python manage.py (db.sqlite3 파일 생성 - 장고 기본 초기 DB)
 * 초기 관리자 생성: python manage.py createsuperuser
@@ -57,3 +56,13 @@ pip install django 치면 됨. 최신버전으로 해놨음
 커밋컨벤션: https://overcome-the-limits.tistory.com/entry/%ED%98%91%EC%97%85-%ED%98%91%EC%97%85%EC%9D%84-%EC%9C%84%ED%95%9C-%EA%B8%B0%EB%B3%B8%EC%A0%81%EC%9D%B8-git-%EC%BB%A4%EB%B0%8B%EC%BB%A8%EB%B2%A4%EC%85%98-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0
 이거 참고해서 깃 관리할거라 참고해주십셔
 ```
+
+++
+머지 후 브랜치 삭제한 이후
+
+1) git pull <저장소 명 (보통 origin)> main
+을 사용해서 로컬도 최신으로 유지
+
+2) git checkout -b <신규 브랜치명>
+
+그 이후는 위와 동일
