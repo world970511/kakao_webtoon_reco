@@ -49,7 +49,7 @@
 ## ⚒️기술 스택
 
 ### Front-end   
- `React` , `React Bootstrap`,  `JavaScript` , `HTML5` , `CSS`
+ `Bootstrap`,  `JavaScript` , `HTML5` , `CSS`
 
 ### Back-end
 `Django`
