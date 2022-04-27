@@ -44,9 +44,6 @@ activate
 
 * python manage.py runserver 명령으로 서버 구동후 localhost:8000/admin 으로 접속하여 Django admin 페이지에서 User, Product에 +(더하기버튼)눌러 아무 적당한 값들을 입력하여 데이터들 디비에 입력.
 
-* 서버에서 전달하는 데이터 확인 방법: 웹 브라우저나 포스트맨에서 아래 api 주소로 확인하면됨.
- localhost:8000/api/product/ 또는 localhost:8000/api/user 에 접속하여 추가한 데이터들이 JSON 형식으로 잘 리턴되는지 확인
-
 * 혹시 안된다면 아래 DB 모델 관련 마이그레이션 명령어들 실행 후 python manage.py runserver 명령으로 서버 구동해 볼 것.
 
 * DB/모델 추가/변경시 새 마이그레션을 생성:
@@ -61,8 +58,9 @@ activate
 머지 후 브랜치 삭제한 이후
 
 1) git pull <저장소 명 (보통 origin)> main
-을 사용해서 로컬도 최신으로 유지
+을 사용해서 로컬도 최신으로 유지, 귀찮으면 그냥 신규 폴더 파서 거기다가 클론
 
-2) git checkout -b <신규 브랜치명>
+2)pull 했을 경우 충돌 해결하기 근데 큰 문제 없을 듯
 
-그 이후는 위와 동일
+2) git checkout -b <신규 브랜치명> 파서 기능 생성
+
