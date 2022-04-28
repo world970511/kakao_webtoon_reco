@@ -1,41 +1,44 @@
-/* 인트로 페이지*/
+/*전체 적용*/
 .btn-dark{
-  width:150px;
+  width:170px;
 }
 .btn-dark:hover,
 .btn-dark:focus {
   color: rgb(255, 200, 18);
   text-shadow: none; /* Prevent inheritance from `body` */
 }
-
 body {
   background-color: #ffd256;
 }
+footer{
+  color: #3b3b3b !important;
+  width: auto;
+  text-align: center;
+}
+img { 
+  width : 100%;
+  height: 100%; 
+ }
 
+/*인트로 페이지 적용*/
 .intro-h1{
   font-size: 2em !important;
 }
 .intro-h4{
   font-size: 1.3em !important;
 }
-
 .cover-container {
   max-width: 100em;
 }
-
-footer{
-  color: #3b3b3b !important;
-  width: auto;
-  text-align: center;
-}
-
 .img-intro-container{
   margin: 10px;
   max-width: 70vh;
   text-align: center;
   padding-top: 20px;
 }
-img { 
-  width : 100%;
-  height: 100%; 
- }
+
+/*select 페이지 적용*/
+.textfiled-color {
+  background-color: #ffd256;
+}
+

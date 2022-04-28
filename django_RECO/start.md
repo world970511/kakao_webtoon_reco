@@ -42,7 +42,7 @@ activate
 * 초기 관리자 생성: python manage.py createsuperuser
  - id / pw : admin / 1q..
 
-* python manage.py runserver 명령으로 서버 구동후 localhost:8000/admin 으로 접속하여 Django admin 페이지에서 User, Product에 +(더하기버튼)눌러 아무 적당한 값들을 입력하여 데이터들 디비에 입력.
+*python manage.py runserver  명령으로 서버 구동후 localhost:8000/admin 으로 접속하여 Django admin 페이지에서 User, Product에 +(더하기버튼)눌러 아무 적당한 값들을 입력하여 데이터들 디비에 입력.
 
 * 혹시 안된다면 아래 DB 모델 관련 마이그레이션 명령어들 실행 후 python manage.py runserver 명령으로 서버 구동해 볼 것.
 

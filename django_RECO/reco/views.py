@@ -8,3 +8,6 @@ def intro(request):
 #여기부터 작성할 것
 def select(request):
     return render(request, 'select.html')
+
+def result(request):
+    return render(request, 'result.html')
