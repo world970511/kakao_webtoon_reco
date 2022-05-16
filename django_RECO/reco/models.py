@@ -10,3 +10,5 @@ class AllData(models.Model):
     desc=models.TextField(null=True)
     key_word=models.CharField(max_length=300)
 
+
+

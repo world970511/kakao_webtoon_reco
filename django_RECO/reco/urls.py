@@ -7,5 +7,5 @@ app_name = 'reco'
 urlpatterns = [
    path('',views.intro,name='intro'),
    path('select/',views.select,name='select'),
-   path('result/',views.select,name='select')
+   path('result/',views.result,name='result')
 ]

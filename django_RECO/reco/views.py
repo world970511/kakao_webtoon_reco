@@ -1,3 +1,5 @@
+from django.core.paginator import Paginator
+from django.template.loader import render_to_string
 from django.shortcuts import render
 from .models import AllData
 
@@ -9,5 +11,6 @@ def intro(request):
 def select(request):
     return render(request, 'select.html')
 
+#추천 적용
 def result(request):
     return render(request, 'result.html')

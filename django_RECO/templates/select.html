@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
+<body>
+<header class="mb-auto">
+  <div>
+    <h3 class="float-md-start mb-0"></h3>
+  </div>
+</header>
   <main>
     <section class="py-5 text-center container textfiled-color">
     <div class="row py-lg-5">
@@ -7,7 +13,7 @@
         <h1 class="fw-light"><strong>웹툰을 선택해주세요.</strong></h1><hr>
         <p class="lead text-muted">보고 싶었던 웹툰, 예전에 재밌게 봤던 웹툰,<br> 모두 포함해서 최소 10개를 선택해주세요.<br> 많이 선택할수록 추천의 정확도가 높아집니다.</p>
         <p>
-          <a href="{% url 'reco:select' %}"><button type="button" class="btn btn-dark btn-lg ">NEXT</button></a>
+          <a href="{% url 'reco:result' %}"><button type="button" class="btn btn-dark btn-lg ">NEXT</button></a>
         </p>
       </div>
     </div>
@@ -18,55 +24,10 @@
       <div class="row row-cols-3 row-cols-lx-5 g-3">
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" maxheight="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+              <svg class="bd-placeholder-img card-img-top" width="100%" maxheight="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
             <div class="card-body">
-              <p class="card-text">title</p>
+                <p class="card-text">title</p>
               <div class="d-flex justify-content-between align-items-center">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" maxheight="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-            <div class="card-body">
-              <p class="card-text">title</p>
-              <div class="d-flex justify-content-between align-items-center">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" maxheight="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-            <div class="card-body">
-              <p class="card-text">title</p>
-              <div class="d-flex justify-content-between align-items-center">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" maxheight="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-            <div class="card-body">
-              <p class="card-text">title</p>
-              <div class="d-flex justify-content-between align-items-center">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" maxheight="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body">
-              <p class="card-text">title</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
               </div>
             </div>
           </div>
@@ -75,4 +36,5 @@
     </div>
   </div>
 </main>
+</body>
 {% endblock %}
