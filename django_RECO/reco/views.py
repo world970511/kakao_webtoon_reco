@@ -1,7 +1,5 @@
-from django.core.paginator import Paginator
-from django.template.loader import render_to_string
+from django.core.paginator import Paginator,EmptyPage, PageNotAnInteger
 from django.shortcuts import render
-from django.db.models import Q
 from .models import AllData
 
 # Create your views here.
@@ -10,7 +8,15 @@ def intro(request):
 
 #여기부터 작성할 것
 def select(request):
-    webtoon=AllData.objects.all()
+    page = request.GET.get('page', '1')  # 페이지
+    webtoons=AllData.objects.all()
+    paginator = Paginator(webtoons, 15)  # 페이지당 10개씩 보여주기
+    try:
+        webtoon=paginator.page(page)
+    except PageNotAnInteger:
+        webtoon = paginator.page(1)
+    except EmptyPage:
+        webtoon = paginator.page(paginator.num_pages)
     return render(request, 'select.html',{'webtoon':webtoon})
 
 #추천 적용

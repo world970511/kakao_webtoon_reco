@@ -20,19 +20,18 @@ django.setup()
 
 from reco.models import AllData
 # csv 파일 경로
-CSV_PATH = 'backend\data_kakao.csv'	
+CSV_PATH = 'django_RECO\data_kakao.csv'	
 
 # encoding 설정 필요
 with open(CSV_PATH, newline='', encoding='utf-8') as csvfile:	
     data_reader = csv.DictReader(csvfile)
-
     for row in data_reader:
         AllData.objects.create(
             id=row['id'],
             url = row['url'],
             title = row['title'],
             genre = row['genre'],
-            img = row['img'],
+            img = 'img/'+row['img'],
             desc = row['desc'],
             key_word = row['key_word']        
         )

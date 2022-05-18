@@ -6,7 +6,7 @@ class AllData(models.Model):
     url=models.URLField(max_length=500)
     title=models.CharField(max_length=300)
     genre=models.CharField(max_length=200)
-    img=models.ImageField(default='media/default_image.jpeg')
+    img=models.ImageField(upload_to='webtoon_img/',blank=True, null=True)
     desc=models.TextField(null=True)
     key_word=models.CharField(max_length=300)
 
