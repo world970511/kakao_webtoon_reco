@@ -14,18 +14,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <link  rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
     <link  rel="stylesheet" type="text/css" href="{% static 'css/custom/style.css' %}">
-    <script src="{% static 'js/jquery/jquery-3.6.0.min.js' %}"></script>
-    <script src="{% static 'js/custom/scrollToTop.js' %}"></script>
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
     <script src="{% static 'js/bootstrap/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'js/jquery/jquery.waypoints.min.js' %}"></script>
-    <script src="{% static 'js/jquery/infinite.min.js' %}"></script>
-
   </head>
-
+  <body>
     <!-- 기본 템플릿 안에 삽입될 내용 Start -->
-    {% block content %}
-    {% endblock %}
+      {% block content %}
+      {% endblock %}
     <!-- 기본 템플릿 안에 삽입될 내용 End -->
-
-    </html>
+  </body>
 </html>

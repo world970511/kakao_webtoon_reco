@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-<body>
+{% load static %}
+
 <header class="mb-auto">
   <div>
     <h3 class="float-md-start mb-0"></h3>
@@ -13,7 +14,7 @@
         <h1 class="fw-light"><strong>웹툰을 선택해주세요.</strong></h1><hr>
         <p class="lead text-muted">보고 싶었던 웹툰, 예전에 재밌게 봤던 웹툰,<br> 모두 포함해서 최소 10개를 선택해주세요.<br> 많이 선택할수록 추천의 정확도가 높아집니다.</p>
         <p>
-          <a href="{% url 'reco:result' %}"><button type="button" class="btn btn-dark btn-lg ">NEXT</button></a>
+          <a href="{% url 'reco:result' %}"><button type="submit" class="btn btn-dark btn-lg ">NEXT</button></a>
         </p>
       </div>
     </div>
@@ -21,21 +22,22 @@
   <!-- 웹툰 선택 리스트-->
   <div class="album py-5 bg-black">
     <div class="container">
+      <form action="" method="post">
       <div class="row row-cols-3 row-cols-lg-5 g-3 infinite-container">
         {% csrf_token %}
-          {% for w in webtoon %}
+          {% for w in webtoon %}   
           <div class="col infinite-item">
-            <div class="card shadow-sm">
-              <img src="{{ w.img.url}}" class="card-img-top" alt="{{ movie.movie_logo.url}}">
-              <div class="card-body">
-                  <h6 class="card-title text-center">{{w.title}}</h6>
-              </div>
-            </div>
+            <input id="{{ w.id }}" type="checkbox" name="selected" value="{{ w.id }}">
+            <label for="{{ w.id }}">
+                <img src="{{ w.img.url}}"  alt="{{ w.title}}">
+                <span><h5>{{w.title}} </h5></span>
+            </label>
           </div>
           {% endfor %}
         </div>
-        <div class="d-flex d-none position-fixed" style="display: none;">
-          <div class="spinner-border" role="status">
+      </form>
+        <div class="loading" style="display: none;">
+          <div class="spinner-border text-info" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
         </div>
@@ -45,9 +47,16 @@
 
       </div>
     </div>
+    <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top" style="border-radius: 50%;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+      </svg>
+    </button>
   </div>
 </main>
-</body>
+<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'js/infinite.min.js' %}"></script>
+<script src="{% static 'js/scrollToTop.js' %}"></script>
 <script>
   var infinite = new Waypoint.Infinite({
     element: $('.infinite-container')[0],
@@ -58,6 +67,8 @@
       $('.loading').hide();
     }
   });
+  $("label img").on("click", function() {
+    $("#" + $(this).parents("label").attr("for")).click();
+});
 </script>
-
 {% endblock %}

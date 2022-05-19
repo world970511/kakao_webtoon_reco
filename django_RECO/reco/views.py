@@ -17,7 +17,11 @@ def select(request):
         webtoon = paginator.page(1)
     except EmptyPage:
         webtoon = paginator.page(paginator.num_pages)
-    return render(request, 'select.html',{'webtoon':webtoon})
+    if request.POST: 
+        selected_webbtoon_id_list = list(map(int, request.POST.getlist('selected')))
+        print(selected_webbtoon_id_list)
+    return render(request, 'select.html',{'webtoon':webtoon})    
+
 
 #추천 적용
 def result(request):
