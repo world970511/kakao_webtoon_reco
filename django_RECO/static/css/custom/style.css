@@ -99,6 +99,13 @@ label img {
 
 
 /*reseult 페이지 적용*/
+.img-result-container{
+  text-align: center;
+}
+
+.result-info{
+  padding: 25px;
+}
 
 
 

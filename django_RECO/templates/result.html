@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+<link  rel="stylesheet" type="text/css" href="{% static 'css/custom/style.css' %}">
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" style="font-family: 'Gowun Dodum', sans-serif;">
     <header class="mb-auto">
       <div>
@@ -19,16 +20,37 @@
                 <div class="container" 
                   style="
                     background-color:black; 
+                    height: 50vh;
+                    max-width:700px;
+                    border-radius:10px">
+                    <div class="row">
+                      <img src="../static/assets/result_start_img-001.png" alt="콘텐츠 추천 시작">
+                    </div>
+                </div>  
+              </div>
+              {% csrf_token %}
+              {% for data in all_data %}
+              <div class="carousel-item">
+                <div class="container" 
+                  style="
+                    background-color:black; 
                     color: rgb(255, 255, 255);
                     height: 50vh;
                     max-width:700px;
                     border-radius:10px">
                     <div class="row">
                       <div class="col-lg-5 col-sm-12"></div>
-                      <div class="col-lg-7 col-sm-12"> </div>
+                      <div class="col-lg-7 col-sm-12">
+                        <div class="result-info">
+                          <h5>{{data.title}}</h5>
+                          <h6>{{data.key_word}}</h9>
+                          <hr>
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                </div>  
               </div>
+              {% endfor %} 
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -59,5 +81,4 @@
         <p>naeun <a href="https://github.com/world970511" class="text-white">Github</a>/ Hyejin <a href="https://github.com/hjlim7831" class="text-white">Github</a></p>
     </footer>
   </div>
-
 {% endblock %}

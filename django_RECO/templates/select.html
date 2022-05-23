@@ -14,7 +14,7 @@
         <h1 class="fw-light"><strong>웹툰을 선택해주세요.</strong></h1><hr>
         <p class="lead text-muted">보고 싶었던 웹툰, 예전에 재밌게 봤던 웹툰,<br> 모두 포함해서 최소 10개를 선택해주세요.<br> 많이 선택할수록 추천의 정확도가 높아집니다.</p>
         <p>
-          <a href="{% url 'reco:result' %}"><button type="submit" class="btn btn-dark btn-lg ">NEXT</button></a>
+          <button type="submit" value="Submit" class="btn btn-dark btn-lg"  id ='submitnBtn' disabled>NEXT</button>
         </p>
       </div>
     </div>
@@ -27,7 +27,7 @@
         {% csrf_token %}
           {% for w in webtoon %}   
           <div class="col infinite-item">
-            <input id="{{ w.id }}" type="checkbox" name="selected" value="{{ w.id }}">
+            <input id="{{ w.id }}" type="checkbox" name="selected" class="data" value="{{ w.id }}">
             <label for="{{ w.id }}">
                 <img src="{{ w.img.url}}"  alt="{{ w.title}}">
                 <span><h5>{{w.title}} </h5></span>
@@ -69,6 +69,17 @@
   });
   $("label img").on("click", function() {
     $("#" + $(this).parents("label").attr("for")).click();
+});
+$( ".data" ).on( "click", function() {
+  if($( ".data:checked" ).length > 9)
+  {
+    $('#submitnBtn').prop('disabled', false);
+  }
+  else
+  {
+    $('#submitnBtn').prop('disabled', true);
+
+  }  
 });
 </script>
 {% endblock %}
