@@ -8,23 +8,23 @@
   </div>
 </header>
   <main>
-  <section class="py-5 text-center container textfiled-color">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto" style="font-family: 'Gowun Dodum', sans-serif;">
-        <h1 class="fw-light"><strong>웹툰을 선택해주세요.</strong></h1><hr>
-        <p class="lead text-muted">보고 싶었던 웹툰, 예전에 재밌게 봤던 웹툰,<br> 모두 포함해서 최소 10개를 선택해주세요.<br> 많이 선택할수록 추천의 정확도가 높아집니다.</p>
-        <p>
-          <button type="submit" value="Submit" class="btn btn-dark btn-lg"  id ='submitnBtn' disabled>NEXT</button>
-        </p>
+  <form action="" method="post">  
+    <section class="py-5 text-center container textfiled-color">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto" style="font-family: 'Gowun Dodum', sans-serif;">
+          <h1 class="fw-light"><strong>웹툰을 선택해주세요.</strong></h1><hr>
+          <p class="lead text-muted">보고 싶었던 웹툰, 예전에 재밌게 봤던 웹툰,<br> 모두 포함해서 최소 10개를 선택해주세요.<br> 많이 선택할수록 추천의 정확도가 높아집니다.</p>
+          <p>
+            <button type="submit" class="btn btn-dark btn-lg" id ='submitnBtn' disabled>NEXT</button>
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
-  <!-- 웹툰 선택 리스트-->
-  <div class="album py-5 bg-black">
-    <div class="container">
-      <form action="" method="post">
-      <div class="row row-cols-3 row-cols-lg-5 g-3 infinite-container">
-        {% csrf_token %}
+    </section>
+    <!-- 웹툰 선택 리스트-->
+    <div class="album py-5 bg-black">
+      <div class="container">
+        <div class="row row-cols-3 row-cols-lg-5 g-3 infinite-container">
+          {% csrf_token %}
           {% for w in webtoon %}   
           <div class="col infinite-item">
             <input id="{{ w.id }}" type="checkbox" name="selected" class="data" value="{{ w.id }}">
@@ -35,7 +35,6 @@
           </div>
           {% endfor %}
         </div>
-      </form>
         <div class="loading" style="display: none;">
           <div class="spinner-border text-info" role="status">
             <span class="visually-hidden">Loading...</span>
@@ -44,15 +43,15 @@
         {% if webtoon.has_next %}
           <a class="infinite-more-link" href="?page={{ webtoon.next_page_number }}">More</a>
         {% endif %}
-
       </div>
     </div>
-    <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top" style="border-radius: 50%;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+      <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top" style="border-radius: 50%;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
-      </svg>
-    </button>
-  </div>
+        </svg>
+      </button>
+    </div>
+  </form>
 </main>
 <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
 <script src="{% static 'js/infinite.min.js' %}"></script>
