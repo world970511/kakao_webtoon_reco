@@ -54,8 +54,11 @@
 ### Back-end
 `Django`
 
+### recommender
+`Pandas`, `scikit-learn` 
+
 ### 버전 관리
-`Github`
+`Github`, `Git`
 
 
 
