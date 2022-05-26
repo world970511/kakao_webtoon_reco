@@ -2,6 +2,7 @@ from django.core.paginator import Paginator,EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect
 from .models import AllData
 import pandas as pd
+from random import randint
 
 # Create your views here.
 def intro(request):
@@ -10,8 +11,8 @@ def intro(request):
 #데이터 선택
 def select(request):
     page = request.GET.get('page', '1')  # 페이지
-    webtoons=AllData.objects.all()
-    paginator = Paginator(webtoons, 15)  # 페이지당 10개씩 보여주기
+    webtoons=AllData.objects.all().order_by('?')#전체 데이터 가져오기- 랜덤
+    paginator = Paginator(webtoons, 300)  # 페이지당 10개씩 보여주기
     try:
         webtoon=paginator.page(page)
     except PageNotAnInteger:

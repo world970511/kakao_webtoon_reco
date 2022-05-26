@@ -14,22 +14,22 @@
         <div class="col-lg-6 col-md-8 mx-auto" style="font-family: 'Gowun Dodum', sans-serif;">
           <h1 class="fw-light"><strong>웹툰을 선택해주세요.</strong></h1><hr>
           <p class="lead text-muted">보고 싶었던 웹툰, 예전에 재밌게 봤던 웹툰,<br> 모두 포함해서 최소 10개를 선택해주세요.<br> 많이 선택할수록 추천의 정확도가 높아집니다.</p>
-          <p>
+          <p class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" title="10개 이상의 웹툰을 선택해야 활성화됩니다.">
             <button type="submit" class="btn btn-dark btn-lg" id ='submitnBtn' disabled>NEXT</button>
           </p>
         </div>
       </div>
     </section>
     <!-- 웹툰 선택 리스트-->
+    {% csrf_token %}
     <div class="album py-5 bg-black">
       <div class="container">
         <div class="row row-cols-3 row-cols-lg-5 g-3 infinite-container">
-          {% csrf_token %}
           {% for w in webtoon %}   
           <div class="col infinite-item">
-            <input id="{{ w.id }}" type="checkbox" name="selected" class="data" value="{{ w.id }}">
+            <input id="{{ w.id }}" type="checkbox" name="selected" value="{{ w.id }}">
             <label for="{{ w.id }}">
-                <img src="{{ w.img.url}}"  alt="{{ w.title}}">
+                <img src="{{ w.img.url}}"  alt="{{w.title}}">
                 <span><h5>{{w.title}} </h5></span>
             </label>
           </div>
@@ -40,8 +40,9 @@
             <span class="visually-hidden">Loading...</span>
           </div>
         </div>
+
         {% if webtoon.has_next %}
-          <a class="infinite-more-link" href="?page={{ webtoon.next_page_number }}">More</a>
+          <a class="infinite-more-link" href="?page={{ webtoon.next_page_number }}"></a>
         {% endif %}
       </div>
     </div>
@@ -59,6 +60,7 @@
 <script>
   var infinite = new Waypoint.Infinite({
     element: $('.infinite-container')[0],
+    offset: 'bottom-in-view',
     onBeforePageLoad: function () {
       $('.loading').show();
     },
@@ -68,16 +70,18 @@
   });
   $("label img").on("click", function() {
     $("#" + $(this).parents("label").attr("for")).click();
-});
-$( ".data" ).on( "click", function() {
-  if($( ".data:checked" ).length > 9)
+  });
+
+ $( 'input:checkbox[name="selected"]' ).on( "click", function() {
+ if($( 'input:checkbox[name="selected"]:checked' ).length > 9)
   {
-    $('#submitnBtn').prop('disabled', false);
+    $('#submitnBtn').removeAttr('disabled');
+    console.log("통과");
   }
   else
   {
-    $('#submitnBtn').prop('disabled', true);
-
+    $('#submitnBtn').attr("disabled",true); 
+    console.log("안됨");
   }  
 });
 </script>
