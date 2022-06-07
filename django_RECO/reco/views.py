@@ -12,7 +12,7 @@ def intro(request):
 def select(request):
     page = request.GET.get('page', '1')  # 페이지
     webtoons=AllData.objects.all().order_by('?')#전체 데이터 가져오기- 랜덤
-    paginator = Paginator(webtoons, 300)  # 페이지당 10개씩 보여주기
+    paginator = Paginator(webtoons, 150)  # 페이지당 150개씩 보여주기
     try:
         webtoon=paginator.page(page)
     except PageNotAnInteger:

@@ -19,11 +19,12 @@
                 <div class="container" 
                   style="
                     background-color:black; 
-                    height: 50vh;
+                    height: 450px;
                     max-width:700px;
-                    border-radius:10px">
+                    border-radius:10px; "
+                    >
                     <div class="row">
-                      <img src="../static/assets/result_start_img-001.png"  class="rounded mx-auto d-block" alt="콘텐츠 추천 시작">
+                      <img src="/static/assets/resultStart.png" class="rounded mx-auto d-block" style="width:450px;height:450px;" alt="콘텐츠 추천 시작">
                     </div>
                 </div>  
               </div>
@@ -34,18 +35,32 @@
                   style="
                     background-color:black; 
                     color: rgb(255, 255, 255);
-                    height: 50vh;
+                    height: 450px;
                     max-width:700px;
-                    border-radius:10px">
+                    border-radius:10px;
+                    overflow-y: auto;">
                     <div class="row">
-                      <div class="col-lg-5 col-sm-12"></div>
-                      <div class="col-lg-7 col-sm-12">
-                        <div class="result-info">
-                          <h5>{{data.title}}</h5>
-                          <h6>{{data.key_word}}</h9>
-                          <hr>
-                        </div>
+                      <div class="col-md-12 col-xs-12"  style="padding-top:20px;">
+                        <h5>{{data.title}}</h5>
+                        <span>{{data.key_word}}</span>
+                        <hr>
                       </div>
+                      <div class="col-md-5 col-xs-12">
+                          <img src="{{ data.img.url}}"  class="rounded mx-auto d-block" style="max-width:auto; max-height: 40vh;" alt="{{data.title}}">
+                      </div>
+                      <div class="col-md-7 col-xs-12" style="padding-top:10px;" >
+                          <div style=
+                          "background-color:rgb(86, 86, 86);
+                          height:200px;
+                          max-width: auto;
+                          padding: 10px 10px 10px 10px;
+                          overflow-y: auto;">
+                            <span>{{data.desc}}</span>
+                          </div>
+                          <p style="padding-top: 20px;text-align: center;">
+                            <a href="{{data.url}}" type="button" class="btn btn-outline-warning btn-lg ">지금 바로 보기</a>
+                          </p> 
+                        </div>
                     </div>
                 </div>  
               </div>

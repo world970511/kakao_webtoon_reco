@@ -101,10 +101,19 @@ label img {
 /*reseult 페이지 적용*/
 .img-result-container{
   text-align: center;
+  width : 70vh;
+  height: 50vh; 
 }
 
 .result-info{
   padding: 25px;
+}
+.result-div{
+  background-color:black; 
+  color: rgb(255, 255, 255);
+  height: 50vh;
+  max-width:700px;
+  border-radius:10px"
 }
 
 
