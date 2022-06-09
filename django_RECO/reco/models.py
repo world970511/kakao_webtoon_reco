@@ -9,6 +9,7 @@ class AllData(models.Model):
     img=models.ImageField(upload_to='webtoon_img/',blank=True, null=True)
     desc=models.TextField(null=True)
     key_word=models.CharField(max_length=300)
+    desc_noun=models.CharField(max_length=500,blank=True)
 
 
 

@@ -2,6 +2,15 @@
 {% block content %}
 {% load static %}
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" style="font-family: 'Gowun Dodum', sans-serif;">
+        <!-- message 표시 -->
+        {% if messages %}
+        <div class="alert alert-danger my-3" role="alert">
+        {% for message in messages %}
+            <strong>{{ message.tags }}</strong>
+            <ul><li>{{ message.message }}</li></ul>
+        {% endfor %}
+        </div>
+        {% endif %}
     <header class="mb-auto">
       <div>
           <h3 class="float-md-start mb-0"></h3>

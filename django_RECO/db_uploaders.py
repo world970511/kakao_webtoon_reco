@@ -33,6 +33,7 @@ with open(CSV_PATH, newline='', encoding='utf-8') as csvfile:
             genre = row['genre'],
             img = 'img/'+row['img'],
             desc = row['desc'],
-            key_word = row['key_word']        
+            key_word = row['key_word'],  
+            desc_noun = row['desc_noun']      
         )
 
