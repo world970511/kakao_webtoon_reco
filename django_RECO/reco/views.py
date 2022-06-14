@@ -5,9 +5,10 @@ from django.contrib import messages
 from .models import AllData
 import pandas as pd
 import numpy as np
-from ast import literal_eval
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from collections import Counter
+import json
 
 
 class saveList:
@@ -63,6 +64,22 @@ def reco(idList,all_data):
     recommendWebtoons=reco['id'].values.tolist()
     return recommendWebtoons
 
+def wordC(idList,all_data):
+    all_df = pd.DataFrame(list(all_data.values()))
+    watch=all_df[all_df['id'].isin(idList)]
+    noun_li=watch['desc_noun'].values.tolist()
+    key_li=watch['key_word'].values.tolist()
+    wordCloud=[]
+    for i in range(len(noun_li)):
+       wordCloud+= list(set(noun_li[i].split(' ')))
+       wordCloud+= key_li[i].split(' ')
+    c=Counter(wordCloud).most_common() 
+    ans=[list(i)for i in c if i[1]>1 ]
+    if len(ans)>30:
+        return ans[:30]
+    else:
+        return ans
+
 
 #추천 출력
 def result(request):
@@ -70,7 +87,9 @@ def result(request):
     selected_webbtoon_id_list=saveList.setdata
     recommendWebtoons=reco(selected_webbtoon_id_list,webtoons)#추천 결과
     RecoWebtoons=AllData.objects.filter(id__in=recommendWebtoons)
+    wordCloud=json.dumps(wordC(selected_webbtoon_id_list,webtoons))
+    context={'RecoWebtoons':RecoWebtoons,'wordCloud':wordCloud}
     saveList.setdata=[]
-    return render(request, 'result.html',{'all_data':RecoWebtoons})
+    return render(request, 'result.html',{'all_data':context})
 
     

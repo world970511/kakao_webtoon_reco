@@ -2,15 +2,6 @@
 {% block content %}
 {% load static %}
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" style="font-family: 'Gowun Dodum', sans-serif;">
-        <!-- message 표시 -->
-        {% if messages %}
-        <div class="alert alert-danger my-3" role="alert">
-        {% for message in messages %}
-            <strong>{{ message.tags }}</strong>
-            <ul><li>{{ message.message }}</li></ul>
-        {% endfor %}
-        </div>
-        {% endif %}
     <header class="mb-auto">
       <div>
           <h3 class="float-md-start mb-0"></h3>
@@ -38,7 +29,7 @@
                 </div>  
               </div>
               {% csrf_token %}
-              {% for data in all_data %}
+              {% for data in all_data.RecoWebtoons %}
               <div class="carousel-item">
                 <div class="container" 
                   style="
@@ -88,8 +79,8 @@
         <div class="row" style="margin-bottom: 20px;">
           <h1 class="intro-h1"><strong>좋아하시는 키워드를 모아봤어요</strong></h1><hr>
         </div>
-        <div class="row" style="margin-bottom: 50px;">
-
+        <div class="row" style="margin-bottom: 100px; text-align: center;">
+          <canvas id="canvas" class="rounded mx-auto d-block" style="max-width:900px;"></canvas>
         </div>
         <div class="row" style="margin-bottom: 100px;">
           <h4 class="intro-h1 text-center"><strong>다시 한번 테스트하기</strong></h4>
@@ -104,4 +95,21 @@
         <p>naeun <a href="https://github.com/world970511" class="text-white">Github</a>/ Hyejin <a href="https://github.com/hjlim7831" class="text-white">Github</a></p>
     </footer>
   </div>
+  <script src="{% static 'js/wordcloud2.js' %}"></script>
+  <script>
+    const list=JSON.parse('{{all_data.wordCloud|safe}}');
+
+    WordCloud(document.getElementById('canvas'), {
+      list: list,
+      gridSize: 6,
+      weightFactor: 14,
+      fontFamily:'Gowun Dodum,sans-serif',
+      fontWeight: 'normal',
+      color: function() {
+        return (['#FFFFFF', '#000000', '#e11'])[Math.floor(Math.random() * 3)]
+      },
+      backgroundColor: '#ffd256', 
+      shrinkToFit: true,
+    });
+  </script>
 {% endblock %}
