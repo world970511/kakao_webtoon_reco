@@ -27,4 +27,5 @@ sqlparse==0.4.2
 threadpoolctl==3.1.0
 tzdata==2022.1
 whitenoise==6.2.0
+python-decouple==3.4
 
