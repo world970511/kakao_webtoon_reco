@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+import decouple
 from django.core.exceptions import ImproperlyConfigured
 from decouple import config
 
