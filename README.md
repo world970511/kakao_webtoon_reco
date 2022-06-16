@@ -85,13 +85,13 @@
 
 ## 📂구성도
 - 구성도🔗 https://www.figma.com/file/wfVi0LNkrcLO38pAnTPNiG/%EC%B9%B4%EC%B9%B4%EC%98%A4-%EC%9B%B9%ED%88%B0-%EC%B6%94%EC%B2%9C?node-id=0%3A1
-- ![image](https://user-images.githubusercontent.com/57740138/162926465-e50b245a-2e06-4297-9dcb-c7886e214e84.png)
+![image](https://user-images.githubusercontent.com/57740138/162926465-e50b245a-2e06-4297-9dcb-c7886e214e84.png)
 </br>
 
 
 ## 🙄추가 기능 구현(예정)
 - 웹툰 플랫폼 추천
-- 각 웹툰 플랫폼별 독점 웹툰의 특징 
+- 각 웹툰 플랫폼별 독점 웹툰의 특징 분석 자료 제공
 
 
 
