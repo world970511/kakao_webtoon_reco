@@ -20,7 +20,7 @@ django.setup()
 
 from reco.models import AllData
 # csv 파일 경로
-CSV_PATH = 'django_RECO\data_kakao.csv'	
+CSV_PATH = './data_kakao.csv'	
 
 # encoding 설정 필요
 with open(CSV_PATH, newline='', encoding='utf-8') as csvfile:	
