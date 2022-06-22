@@ -8,6 +8,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from collections import Counter
 import json
+import re
 
 
 class saveList:
@@ -71,7 +72,8 @@ def wordC(idList,all_data):
     wordCloud=[]
     for i in range(len(noun_li)):
        wordCloud+= list(set(noun_li[i].split(' ')))
-       wordCloud+= key_li[i].split(' ')
+       key=re.sub('[^가-힣/ ]', '', key_li[i])
+       wordCloud+= key.split(' ')
     c=Counter(wordCloud).most_common() 
     ans=[list(i)for i in c if i[1]>1 ]
     if len(ans)>30:

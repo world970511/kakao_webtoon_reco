@@ -13,7 +13,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
-import decouple
+import cloudinary 
+import cloudinary.uploader 
+import cloudinary.api
 from django.core.exceptions import ImproperlyConfigured
 from decouple import config
 
@@ -45,6 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'reco',
+    'cloudinary_storage',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -134,6 +138,13 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+cloudinary.config( 
+    cloud_name = 'naeun', 
+    api_key = '575825474987513', 
+    api_secret = config('api_secret')
+)
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
