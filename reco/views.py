@@ -93,4 +93,7 @@ def result(request):
     saveList.setdata=[]
     return render(request, 'result.html',{'all_data':context})
 
+#404 에러
+def page_not_found(request, exception):
+    return render(request, '404.html', {})
     
