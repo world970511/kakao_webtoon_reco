@@ -90,7 +90,6 @@ def result(request):
     RecoWebtoons=AllData.objects.filter(id__in=recommendWebtoons)
     wordCloud=json.dumps(wordC(selected_webbtoon_id_list,webtoons))
     context={'RecoWebtoons':RecoWebtoons,'wordCloud':wordCloud}
-    saveList.setdata=[]
     return render(request, 'result.html',{'all_data':context})
 
 #404 에러

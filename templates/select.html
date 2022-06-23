@@ -2,6 +2,16 @@
 {% block content %}
 {% load static %}
 <body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
+<div style="
+  background-color: #ffd256; 
+  width: 100%; 
+  height: 100%; 
+  margin:0 auto ;
+  display:block;"
+  id="loading">
+  <h1>Loading...</h1>
+  <div class="loader"></div>
+</div>
 <header class="mb-auto">
   <div>
     <h3 class="float-md-start mb-0"></h3>
@@ -35,7 +45,7 @@
           </div>
           {% endfor %}
         </div>
-        <div class="loading" style="display: none;">
+        <div class="loading-data" style="display: none;">
           <div class="spinner-border text-info" role="status">
             <span class="visually-hidden">Loading...</span>
           </div>
@@ -58,34 +68,8 @@
 <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
 <script src="{% static 'js/infinite.min.js' %}"></script>
 <script src="{% static 'js/scrollToTop.js' %}"></script>
-<script>
-  var infinite = new Waypoint.Infinite({
-    element: $('.infinite-container')[0],
-    offset: 'bottom-in-view',
-    onBeforePageLoad: function () {
-      $('.loading').show();
-    },
-    onAfterPageLoad: function ($items) {
-      $('.loading').hide();
-    }
-  });
-  $("label img").on("click", function() {
-    $("#" + $(this).parents("label").attr("for")).click();
-  });
-
- $( 'input:checkbox[name="selected"]' ).on( "click", function() {
- if($( 'input:checkbox[name="selected"]:checked' ).length > 9)
-  {
-    $('#submitnBtn').removeAttr('disabled');
-  }
-  else
-  {
-    $('#submitnBtn').attr("disabled",true); 
-  }  
-});
-</script>
-<script type="text/javascript">
-  window.history.forward();
-  function noBack(){window.history.forward();}
- </script>
+<script src="{% static 'js/noBack.js' %}"></script>
+<script src="{% static 'js/loader.js' %}"></script>
+<script src="{% static 'js/pageload.js' %}"></script>
+<script src="{% static 'js/checklist.js' %}"></script>
 {% endblock %}
