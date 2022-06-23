@@ -15,3 +15,6 @@ if settings.DEBUG:
 
 #404페이지
 handler404 = 'reco.views.page_not_found'
+
+#500페이지
+handler500 = 'reco.views.custom_error_view'

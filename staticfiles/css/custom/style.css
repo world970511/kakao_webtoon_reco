@@ -134,7 +134,8 @@ label img {
   overflow-x: hidden;
   margin:0 auto ;
   display:block;
-  text-align: center;"
+  text-align: center;
+  color: #fff;
 }
 .loader {
   margin: 100px auto;

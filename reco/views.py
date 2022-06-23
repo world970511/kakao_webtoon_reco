@@ -95,4 +95,8 @@ def result(request):
 #404 에러
 def page_not_found(request, exception):
     return render(request, '404.html', {})
+
+#500 에러
+def custom_error_view(request, exception=None):
+    return render(request, "500.html", {})
     
