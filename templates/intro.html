@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+<body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-center" style="font-family: 'Gowun Dodum', sans-serif;">
     <header class="mb-auto">
       <div>
@@ -34,5 +35,9 @@
         <p>naeun <a href="https://github.com/world970511" class="text-white">Github</a>/ Hyejin <a href="https://github.com/hjlim7831" class="text-white">Github</a></p>
     </footer>
   </div>
-
+</body>
+<script type="text/javascript">
+  window.history.forward();
+  function noBack(){window.history.forward();}
+</script>
 {% endblock %}

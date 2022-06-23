@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-
-  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" style="font-family: 'Gowun Dodum', sans-serif;">
+<body>
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" id ='success'style="font-family: 'Gowun Dodum', sans-serif;">
     <header class="mb-auto">
       <div>
           <h3 class="float-md-start mb-0"></h3>
@@ -96,6 +96,19 @@
         <p>naeun <a href="https://github.com/world970511" class="text-white">Github</a>/ Hyejin <a href="https://github.com/hjlim7831" class="text-white">Github</a></p>
     </footer>
   </div>
+</body>
+<script>
+$('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
+$(window).on('load', function(){
+  setTimeout(removeLoader, 2000); //wait for page load PLUS two seconds.
+});
+function removeLoader(){
+    $( "#loadingDiv" ).fadeOut(500, function() {
+      // fadeOut complete. Remove the loading div
+      $( "#loadingDiv" ).remove(); //makes page more lightweight 
+  });  
+}
+</script>
   <script src="{% static 'js/wordcloud2.js' %}"></script>
   <script>
     const list=JSON.parse('{{all_data.wordCloud|safe}}');

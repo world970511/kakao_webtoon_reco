@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-
+<body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
 <header class="mb-auto">
   <div>
     <h3 class="float-md-start mb-0"></h3>
@@ -54,6 +54,7 @@
     </div>
   </form>
 </main>
+</body>
 <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
 <script src="{% static 'js/infinite.min.js' %}"></script>
 <script src="{% static 'js/scrollToTop.js' %}"></script>
@@ -83,4 +84,8 @@
   }  
 });
 </script>
+<script type="text/javascript">
+  window.history.forward();
+  function noBack(){window.history.forward();}
+ </script>
 {% endblock %}

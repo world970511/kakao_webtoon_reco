@@ -2,20 +2,27 @@
 {% block content %}
 {% load static %}
 <!-- 404 Page -->
-<main>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-lg-5 col-sm-12 text-center" style="margin:auto; padding-top:50px;">
-            <div></div>
-            <p class="lead">페이지를 찾을 수 없습니다.</p>
-            <p class="lead" style="padding-top: 20px;">
-                <a href="{% url 'reco:intro' %}" type="button" class="btn btn-dark btn-lg">홈으로 </a></p>
-        </div>
-        <div class="col-lg-7 col-sm-12 text-center">
-                <img src="/static/assets/404.png" style="max-width:650px"alt="404">
-        </div>
+<body>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-center" style="font-family: 'Gowun Dodum', sans-serif;" id="success">
+        <header class="mb-auto">
+          <div>
+              <h3 class="float-md-start mb-0"></h3>
+          </div>
+        </header>
+        <main>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5 col-sm-12 text-center" style="margin:auto; padding-top:50px;">
+                        <p class="lead"><h1>페이지를 찾을 수 없습니다.</h1></p>
+                        <p class="lead" style="padding-top: 20px;">
+                        <a href="{% url 'reco:intro' %}" type="button" class="btn btn-dark btn-lg">홈으로 </a></p>
+                    </div>
+                    <div class="col-lg-7 col-sm-12 text-center">
+                        <img src="/static/assets/404.png" style="max-width:650px"alt="404">
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
-</div>
-</main>
-
+</body>
 {% endblock %}

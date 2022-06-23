@@ -17,14 +17,8 @@
     <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
     <script src="{% static 'js/bootstrap/bootstrap.bundle.min.js' %}"></script>
   </head>
-  <body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
     <!-- 기본 템플릿 안에 삽입될 내용 Start -->
       {% block content %}
       {% endblock %}
     <!-- 기본 템플릿 안에 삽입될 내용 End -->
-  </body>
-  <script type="text/javascript">
-    window.history.forward();
-    function noBack(){window.history.forward();}
-   </script>
 </html>
