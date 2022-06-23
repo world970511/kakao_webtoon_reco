@@ -3,11 +3,13 @@
 {% load static %}
 <body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
 <div style="
+  position: fixed;
   background-color: #ffd256; 
   width: 100%; 
   height: 100%; 
   margin:0 auto ;
-  display:block;"
+  display:block;
+  text-align: center;"
   id="loading">
   <h1>Loading...</h1>
   <div class="loader"></div>
