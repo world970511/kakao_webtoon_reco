@@ -1,4 +1,5 @@
 let scrollBtn = document.getElementById("btn-back-to-top");
+let alertCheck= document.getElementById("alertCheck");
 
 window.onscroll = function () {
   scrollFunction();
@@ -12,6 +13,7 @@ function scrollFunction() {
     scrollBtn.style.display = "block";
   } else {
     scrollBtn.style.display = "none";
+    alertCheck.style.display = "none";
   }
 }
 scrollBtn.addEventListener("click", backToTop);

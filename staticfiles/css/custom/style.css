@@ -50,8 +50,10 @@ img {
   right: 20px;
   display: none;
 }
-
-
+#alertCheck{
+  position: fixed;
+  display: none;
+}
 input[type="checkbox"] {
   display: none;
 }
@@ -104,7 +106,24 @@ label img {
   width : 70vh;
   height: 50vh; 
 }
-
+#carousel-start{                    
+  background-color:black; 
+  height: 450px;
+  max-width:700px;
+  border-radius:10px;}
+#carousel-item-other{
+  background-color:black; 
+  color: rgb(255, 255, 255);
+  height: 450px;
+  max-width:700px;
+  border-radius:10px;
+  overflow-y: auto;}
+#context-desc{                          
+  background-color:rgb(86, 86, 86);
+  height:200px;
+  max-width: auto;
+  padding: 10px 10px 10px 10px;
+  overflow-y: auto;}
 .result-info{
   padding: 25px;
 }

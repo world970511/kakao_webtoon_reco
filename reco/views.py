@@ -19,9 +19,6 @@ class saveList:
 def intro(request):
     return render(request, 'intro.html')
 
-#404페이지
-def page_not_found(request, exception):
-    return render(request, 'reco/404.html', {})
 
 #데이터 선택
 def select(request):
