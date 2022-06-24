@@ -13,6 +13,15 @@
 </header>
   <main>
   <form action="" method="post">  
+    <div class="alert alert-success d-flex align-items-center" role="alert" id="checkSelect">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+      </svg>
+      <div>
+        &nbsp이제부터 다음 페이지로 이동이 가능합니다! &nbsp
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
     <section class="py-5 text-center container textfiled-color">
       <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto" style="font-family: 'Gowun Dodum', sans-serif;">
@@ -51,7 +60,7 @@
     </div>
       <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top" style="border-radius: 50%;">
         <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+          <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
         </svg>
       </button>
     </div>
@@ -64,5 +73,4 @@
 <script src="{% static 'js/noBack.js' %}"></script>
 <script src="{% static 'js/loader.js' %}"></script>
 <script src="{% static 'js/pageload.js' %}"></script>
-<script src="{% static 'js/checklist.js' %}"></script>
-{% endblock %}
+<script src="{% static 'js/checklist.js' %}"></script>   

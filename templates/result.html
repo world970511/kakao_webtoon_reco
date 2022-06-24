@@ -22,13 +22,7 @@
           <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <div class="container" 
-                  style="
-                    background-color:black; 
-                    height: 450px;
-                    max-width:700px;
-                    border-radius:10px; "
-                    >
+                <div class="container" id="carousel-start">
                     <div class="row">
                       <img src="/static/assets/resultStart.png" class="rounded mx-auto d-block" style="width:450px;height:450px;" alt="콘텐츠 추천 시작">
                     </div>
@@ -37,14 +31,7 @@
               {% csrf_token %}
               {% for data in all_data.RecoWebtoons %}
               <div class="carousel-item">
-                <div class="container" 
-                  style="
-                    background-color:black; 
-                    color: rgb(255, 255, 255);
-                    height: 450px;
-                    max-width:700px;
-                    border-radius:10px;
-                    overflow-y: auto;">
+                <div class="container" id="carousel-item-other">
                     <div class="row">
                       <div class="col-md-12 col-xs-12"  style="padding-top:20px;">
                         <h5>{{data.title}}</h5>
@@ -55,12 +42,7 @@
                           <img src="{{ data.img.url}}"  class="rounded mx-auto d-block" style="max-width:auto; max-height: 40vh;" alt="{{data.title}}">
                       </div>
                       <div class="col-md-7 col-xs-12" style="padding-top:10px;" >
-                          <div style=
-                          "background-color:rgb(86, 86, 86);
-                          height:200px;
-                          max-width: auto;
-                          padding: 10px 10px 10px 10px;
-                          overflow-y: auto;">
+                          <div id="context-desc">
                             <span>{{data.desc}}</span>
                           </div>
                           <p style="padding-top: 20px;text-align: center;">

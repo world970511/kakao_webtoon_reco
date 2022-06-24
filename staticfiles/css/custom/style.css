@@ -51,6 +51,10 @@ img {
   display: none;
 }
 
+#checkSelect{
+  display: none;
+  position: fixed;
+}
 
 input[type="checkbox"] {
   display: none;
@@ -116,6 +120,26 @@ label img {
   border-radius:10px"
 }
 
+#carousel-start{                    
+  background-color:black; 
+  height: 450px;
+  max-width:700px;
+  border-radius:10px;}
+
+#carousel-item-other{                    
+  background-color:black; 
+  color: rgb(255, 255, 255);
+  height: 450px;
+  max-width:700px;
+  border-radius:10px;
+  overflow-y: auto;}
+
+#context-desc{                          
+  background-color:rgb(86, 86, 86);
+  height:200px;
+  max-width: auto;
+  padding: 10px 10px 10px 10px;
+  overflow-y: auto;}
 
 /*404*/
 .img-404-container{
