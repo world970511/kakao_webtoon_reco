@@ -1,6 +1,6 @@
 $("label img").on("click", function() {
-    $("#" + $(this).parents("label").attr("for")).click();
-  });
+  $("#" + $(this).parents("label").attr("for")).click();
+});
 
  $( 'input:checkbox[name="selected"]' ).on( "click", function() {
  if($( 'input:checkbox[name="selected"]:checked' ).length > 9)
