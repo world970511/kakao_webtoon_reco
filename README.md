@@ -1,4 +1,4 @@
-<h1 align="center">카카오 웹툰 추천 시스템</h1>
+<h1 align="center">KAKAO RECO</h1>
 </br>
 
 ## 💁서비스 소개
